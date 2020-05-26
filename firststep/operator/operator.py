@@ -14,10 +14,6 @@ while cumul is not 5:
   cumul += 1
   print(cumul)
 
-# for
-for x in range(5):
-  print(x)
-
 while True:
   print("Type the best number to continue : ")
   responseFromUser = input()
@@ -27,3 +23,7 @@ while True:
       break
   else:
       print("This is not the best number at all")
+
+# for
+for x in range(5):
+  print(x)
