@@ -26,6 +26,8 @@ def convert(s):
   
     except (KeyError, TypeError) as error:
         print("Conversion error: %s" % error)
+
+        raise
         
     return x
 
