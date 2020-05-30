@@ -1,3 +1,5 @@
+import sys
+
 DIGIT_MAP = {
   "zero": "0",
   "one": "1",
@@ -22,11 +24,11 @@ def convert(s):
 
         x = int(number)
   
-    except (KeyError, TypeError):
-        pass
+    except (KeyError, TypeError) as error:
+        print("Conversion error: %s" % error)
         
     return x
 
-result = convert("one four six".split())
+result = convert("toto four six".split())
 
 print(result)
