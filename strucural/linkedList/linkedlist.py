@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, value):
+    def __init__(self, value = None):
         self.value = value
         self.next = None
 
@@ -25,7 +25,8 @@ class LinkedList:
         nodesToShow = []
 
         for node in self:
-            nodesToShow.append(node.value)
+            if node.value is not None:
+                nodesToShow.append(node.value)
 
         print(delimiter.join(nodesToShow))
 
@@ -70,6 +71,27 @@ class LinkedList:
                 return node
 
 
+    def reverse(self):
+        # pointers
+        previousNode = Node()
+        currentNode = self.head
+        nextNode = Node()
+
+        while currentNode is not None:
+            # save next node
+            nextNode = currentNode.next
+
+            # actual reversing (with empty previous)
+            currentNode.next = previousNode
+
+            # advance previous and current
+            previousNode = currentNode
+            currentNode = nextNode
+
+        # change the new head
+        self.head = previousNode
+
+
 # create nodes
 FirstNode = Node('First')
 SecondNode = Node('Second')
@@ -102,6 +124,10 @@ MyLinkedList.insertAfter(SecondNode, SecondJokerNode)
 MyLinkedList.showNodesPretty()
 
 # remove node
-MyLinkedList.removeNode(JokerNode)
-MyLinkedList.removeNode(SecondJokerNode)
+# MyLinkedList.removeNode(JokerNode)
+# MyLinkedList.removeNode(SecondJokerNode)
+# MyLinkedList.showNodesPretty()
+
+# reverse
+MyLinkedList.reverse()
 MyLinkedList.showNodesPretty()
