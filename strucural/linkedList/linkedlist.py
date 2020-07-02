@@ -75,20 +75,18 @@ class LinkedList:
         # pointers
         previousNode = Node()
         currentNode = self.head
-        nextNode = Node()
 
         while currentNode is not None:
-            # save next node
-            nextNode = currentNode.next
+            # keep a ref to the next node
+            tempNextNode = currentNode.next
 
-            # actual reversing (with empty previous)
+            # reverse
             currentNode.next = previousNode
 
-            # advance previous and current
+            # advance prev and cur
             previousNode = currentNode
-            currentNode = nextNode
-
-        # change the new head
+            currentNode = tempNextNode
+        
         self.head = previousNode
 
 
